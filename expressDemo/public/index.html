@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./scripts/index.js" ></script>
+    <title>Express Project</title>
+</head>
+<body>
+    <h1>Hello Express!</h1>
+    <div>我是 Express 静态文件 index.html</div>
+    <!-- <img src="./images/微信图片_20220221215426.jpg"> -->
+    <a href="/api/user?id=1&name=你好">后端渲染数据</a>
+    <button onclick="clickEvent()">AJAX请求</button>
+</br>
+    <label for="userId">ID</label><input id="userId" type="text">
+    <label for="userName">NAME</label><input id="userName" type="text">
+<script>
+    $(function(){  
+    })
+    function clickEvent(){
+            $.ajax({
+            type:'get',
+            url:'/api/user?id=1&name=nihoa&timestap='+Date(),
+            success:function(result){
+                $("#userId").attr('value',result.id);
+                $("#userName").attr('value',result.name)
+            }
+        });
+        }
+</script>
+
+</body>
+</html>
